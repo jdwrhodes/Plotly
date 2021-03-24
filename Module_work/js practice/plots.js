@@ -139,6 +139,19 @@
 
 //using sort
 
-var familyAge = [3,2,39,37,9];
-var sortedAge = familyAge.sort((a,b) => a - b);
-console.log(sortedAge);
+// var familyAge = [3,2,39,37,9];
+// var sortedAge = familyAge.sort((a,b) => a - b);
+// console.log(sortedAge);
+
+//Slice
+
+var integers = [0,1,2,3,4,5]
+var slice1 = integers.slice(0,2); //this only returns the first 2 elements of the array
+
+console.log(slice1);
+
+var words = ['seal', 'dog', 'scorpion', 'orangutan', 'salamander'];
+
+var slice2 = words.slice(-1);
+
+console.log(slice2);
