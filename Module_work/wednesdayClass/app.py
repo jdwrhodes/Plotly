@@ -18,3 +18,7 @@ def piApproximation():
 @app.route("/uniformApproximation")
 def uniformApproximation():
     return render_template('uniformApproximation.html')
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template('dashboard.html')    
