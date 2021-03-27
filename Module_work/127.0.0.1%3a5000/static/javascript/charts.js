@@ -74,12 +74,12 @@ function buildCharts(sample) {
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
 
-    var yticks = otu_ids.slice(0,10).map(otuID => `OTU ${otuID}`).reverse(); // `` creates the f string like in python
+    var yticks = otu_ids.slice(0,10).map(otuID => 'OTU ${otuID}').reverse();
 
     // 8. Create the trace for the bar chart. 
     var barData = [{
-      x: sample_values.slice(0,10).reverse(),
-      y: yticks,
+      x: yticks,
+      y: sample_values.slice(0,10).reverse(),
       text: otu_labels.slice(0,10).reverse(),
       type: "bar",
       orientation: "h"
@@ -100,9 +100,8 @@ function buildCharts(sample) {
       text: otu_labels,
       mode: 'markers',
       marker: {
-        color: otu_ids,
-        size: sample_values,
-        colorscale: 'Earth'
+        color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
+        size: [40, 60, 80, 100]
       }
     }];
 
@@ -111,6 +110,8 @@ function buildCharts(sample) {
       title: 'Marker Size',
       xaxis: {title: 'OTU ID'},
       showlegend: false,
+      height: 600,
+      width: 600
     };
 
     // 3. Use Plotly to plot the data with the layout.
@@ -134,24 +135,14 @@ function buildCharts(sample) {
       type: 'indicator',
       mode: 'gauge+number',
       gauge: {
-        axis: { range: [null, 10], 
-          tickmode: 'array',
-          tickvals: [0,2,4,6,8,10]},
-          
-        bar: { color: 'black'},
-        steps: [
-          { range: [0, 2], color: "red" },
-          { range: [2, 4], color: "orange" },
-          { range: [4, 6], color: "yellow" },
-          { range: [6, 8], color: "lightgreen" },
-          { range: [8, 10], color: "green" }
-        ],
+        axis: { range: [null, 10] },
+        bar: { color: 'black'}
       }
     }];
     
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = { 
-      title: '<b>Belly Button Washing Frequency</b>'
+      title: 'Belly Button Washing Frequency'
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
