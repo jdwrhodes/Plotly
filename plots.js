@@ -35,3 +35,5 @@ var layout = {
 
 // Render the plot to the div tag with id "plot"
 Plotly.newPlot("plot", data, layout);
+
+console.log('hello');

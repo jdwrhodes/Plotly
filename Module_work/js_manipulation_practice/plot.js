@@ -52,3 +52,5 @@ var layoutPop = {
 };
 
 Plotly.newPlot('pop-plot', dataPop, layoutPop);
+
+console.log('hello');
